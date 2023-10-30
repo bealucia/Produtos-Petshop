@@ -1,11 +1,12 @@
 from enum import Enum
 
-
+# Marcas dos produtos enumeradas 
 class Marca(Enum):
     PEDIGREE = 1
     WHISKAS = 2
     QUATREE = 3
 
+# Produtos gerais de Petshop
 class Produto:
     def __init__(self, codigo_barra, nome, preco, Marca):
         self.codigo_barra = codigo_barra
@@ -27,7 +28,6 @@ class Brinquedo(Produto):
     def __init__(self, codigo_barra, nome, preco, Marca, tipo):
         super().__init__(codigo_barra, nome, preco)
         self.tipo = tipo
-
 
 class Inventario:
     def __init__(self):
@@ -52,6 +52,7 @@ def vender_produto(estoque, codigo_barra):
             return produto
     raise ProdutoNaoEncontradoException(f"Produto com código de barras {codigo_barra} não encontrado no estoque.")
 
+# Exceções 
 class ProdutoNaoEncontradoException(Exception):
     pass
 
